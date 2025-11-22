@@ -1,8 +1,2 @@
-bin/
-obj/
-*.user
-*.suo
-*.cache
-.vscode/
-*.dll
-*.exe
+node_modules/
+.env
