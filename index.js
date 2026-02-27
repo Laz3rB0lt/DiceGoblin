@@ -1,4 +1,12 @@
 require('dotenv').config();
+
+// validate required environment variables early so we fail fast in a deployment
+const { DISCORD_TOKEN, CLIENT_ID, GUILD_ID } = process.env;
+if (!DISCORD_TOKEN || !CLIENT_ID || !GUILD_ID) {
+    console.error('❌ Missing one of DISCORD_TOKEN, CLIENT_ID, or GUILD_ID in environment variables');
+    process.exit(1);
+}
+
 const { Client, GatewayIntentBits } = require('discord.js');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
