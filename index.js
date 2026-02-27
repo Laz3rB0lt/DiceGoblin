@@ -1,5 +1,5 @@
+// load .env locally; Railway provides its own variables in production
 require('dotenv').config();
-require('@dotenvx/dotenvx').config();
 
 // validate required environment variables early so we fail fast in a deployment
 const { DISCORD_TOKEN, CLIENT_ID, GUILD_ID } = process.env;
