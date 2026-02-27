@@ -10,7 +10,7 @@
   "author": "Laz3rB0lt",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^14.14.0",
+    "discord.js": "^13.17.1",
     "dotenv": "^16.3.1"
   }
 }
