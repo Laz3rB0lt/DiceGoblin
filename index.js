@@ -1,6 +1,15 @@
 // load .env locally; Railway provides its own variables in production
 require('dotenv').config();
 
+// print Node.js version so we can debug ReadableStream issues
+console.log(`Node version: ${process.version}`);
+const minNode = [18, 0, 0];
+const [major, minor, patch] = process.versions.node.split('.').map(n => parseInt(n, 10));
+if (major < minNode[0] || (major === minNode[0] && minor < minNode[1])) {
+    console.error(`❌ Node ${minNode.join('.')} or newer is required. Detected ${process.version}`);
+    process.exit(1);
+}
+
 // validate required environment variables early so we fail fast in a deployment
 const { DISCORD_TOKEN, CLIENT_ID, GUILD_ID } = process.env;
 if (!DISCORD_TOKEN || !CLIENT_ID || !GUILD_ID) {
